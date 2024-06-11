@@ -1,5 +1,12 @@
 '''
 Creates a single netCDF dataset for the CHIRPS monthly data for Africa.
+Original CHIRPS data was downloaded from:
+
+    https://data.chc.ucsb.edu/products/CHIRPS-2.0/africa_monthly/tifs/
+
+It is assumed the filenames look something like:
+
+    chirps-v2.0.1981.01.tif.gz
 '''
 
 import os
@@ -12,10 +19,10 @@ import pandas as pd
 from tqdm import tqdm
 from tempfile import NamedTemporaryFile
 
-DATA_DIRECTORY = '/home/arthur/Downloads/CHIRPS'
-OUTPUT_FILE = '/anx_lagr_pub/data/ScienceCore/CHIRPS-v2_Africa_monthly_2013-2023.nc'
+DATA_DIRECTORY = '/home/user/Downloads/CHIRPS'
+OUTPUT_FILE = 'CHIRPS-v2_Africa_monthly_2014-2023.nc'
 
-file_list = glob.glob(f'{DATA_DIRECTORY}/chirps-v2.0.20*.gz')
+file_list = glob.glob(f'{DATA_DIRECTORY}/chirps-v2.0.*.gz')
 file_list.sort()
 datasets = []
 for i, file_path in tqdm(enumerate(file_list)):
@@ -45,7 +52,9 @@ for i, file_path in tqdm(enumerate(file_list)):
 # Combine all the datasets together on the "time" axis
 ds = xr.concat(datasets, dim = 'band', data_vars = ['precip'])\
     .rename_vars({'band': 'time'})\
-    .swap_dims({'band': 'time'})
-ds.to_netcdf( # About 500 MB
-    OUTPUT_FILE, format = 'NETCDF4',
-    encoding = {'precip': {'compression': 'zlib', 'complevel': 5}})
+    .swap_dims({'band': 'time'})\
+    .sortby('time')
+ds.reindex(time = ds.coords['time'])\
+    .to_netcdf( # About 500 MB
+        OUTPUT_FILE, format = 'NETCDF4',
+        encoding = {'precip': {'compression': 'zlib', 'complevel': 5}})
