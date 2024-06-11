@@ -14,7 +14,31 @@ The second module of our [open climate-science curriculum](https://openclimatesc
 Contents
 --------------
 
-- Definitions of Drought
+1. Managing Software Dependencies
+2. Working with Gridded Climate Data
+3. Climate and Drought Indices
+
+
+Getting Started
+---------------
+
+[See our installation guide here.](https://github.com/OpenClimateScience/M1-Open-Climate-Data/blob/master/HOW_TO_INSTALL.md)
+
+You can run the notebooks in this repository using [Github Codespaces](https://docs.github.com/en/codespaces/overview) or as [a VSCode Dev Container](https://code.visualstudio.com/docs/devcontainers/containers). Once your container is running, launch Jupyter Notebook by:
+
+```sh
+# Create your own password when prompted
+jupyter server password
+
+# Then, launch Jupyter Notebook; enter your password when prompted
+jupyter notebook
+```
+
+**The Python libraries required for the exercises can be installed using the `pip` package manager:**
+
+```sh
+pip install xarray netcdf4 dask
+```
 
 
 Learning Outcomes
