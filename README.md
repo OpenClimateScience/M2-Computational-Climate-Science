@@ -6,8 +6,8 @@ M2: Computational Climate Science
 The second module of our [open climate-science curriculum](https://openclimatescience.github.io/curriculum) focuses on preparing learners to work with gridded climate datasets.
 **At the end of this module, you should be able to:**
 
-- Describe the interpretation and calculation of climate normals, climate anomalies, and a climatology.
-- Learn what indices are available for meteorological drought, soil moisture drought, atmospheric water demand, and canopy greenness.
+- Learn what indices are available for meteorological drought, soil moisture drought, atmospheric water demand, and soil water balance.
+- Efficiently load and analyze big climate datasets, including long climate data records.
 - Calculate a drought index.
 
 
@@ -17,12 +17,13 @@ Contents
 1. Managing Software Dependencies
 2. Working with Gridded Climate Data
 3. Climate and Drought Indices
+4. Processing Long Climate Data Records
 
 
 Getting Started
 ---------------
 
-[See our installation guide here.](https://github.com/OpenClimateScience/M1-Open-Climate-Data/blob/master/HOW_TO_INSTALL.md)
+[See our installation guide here.](https://github.com/OpenClimateScience/M1-Open-Climate-Data/blob/main/HOW_TO_INSTALL.md)
 
 You can run the notebooks in this repository using [Github Codespaces](https://docs.github.com/en/codespaces/overview) or as [a VSCode Dev Container](https://code.visualstudio.com/docs/devcontainers/containers). Once your container is running, launch Jupyter Notebook by:
 
