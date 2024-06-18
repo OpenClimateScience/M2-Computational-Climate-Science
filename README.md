@@ -15,10 +15,10 @@ Contents
 --------------
 
 1. Managing Software Dependencies
-2. Working with Gridded Climate Data
-3. Climate and Drought Indices
-4. Processing Long Climate Data Records Concurrently
-5. Creating a Reproducible Climate Analysis
+2. [Working with Gridded Climate Data](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/02_Working_with_Gridded_Climate_Data.ipynb)
+3. [Climate and Drought Indices](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/03_Climate_and_Drought_Indices.ipynb)
+4. [Processing Long Climate Data Records Concurrently](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/04_Processing_Long_Climate_Data_Records.ipynb)
+5. [Creating a Reproducible Climate Analysis](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/05_Creating_a_Reproducible_Climate_Data_Analysis.ipynb)
 
 
 Getting Started
@@ -52,3 +52,9 @@ Learning Outcomes
 - Records relationships between code, results, and metadata. (CC1.5)
 - Understands machine representations of numeric data types. (CC2.1)
 - Can debug a computational workflow, either by deduction, print statements, breakpoints, or an interactive debugger. (CC2.7)
+
+
+Acknowledgements
+----------------
+
+This curriculum was enabled by a grant from NASA's Transition to Open Science (TOPS) Training program (80NSSC23K0864), part of [NASA's TOPS Program](https://nasa.github.io/Transform-to-Open-Science/)
