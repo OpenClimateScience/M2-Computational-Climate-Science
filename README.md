@@ -17,7 +17,8 @@ Contents
 1. Managing Software Dependencies
 2. Working with Gridded Climate Data
 3. Climate and Drought Indices
-4. Processing Long Climate Data Records
+4. Processing Long Climate Data Records Concurrently
+5. Creating a Reproducible Climate Analysis
 
 
 Getting Started
