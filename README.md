@@ -54,6 +54,15 @@ Learning Outcomes
 - Can debug a computational workflow, either by deduction, print statements, breakpoints, or an interactive debugger. (CC2.7)
 
 
+Climate Datasets Used
+---------------------
+
+- [Terrestrial water storage anomalies from the NASA GRACE and GRACE-FO missions](https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.1_V3)
+- Monthly precipitation estimates for Africa from [the Climate Hazards Group InfraRed Precipitation with Station (CHIRPS) dataset](https://www.chc.ucsb.edu/data/chirps)
+- Monthly potential evapotranspiration data from [TerraClimate](https://climatedataguide.ucar.edu/climate-data/terraclimate-global-high-resolution-gridded-temperature-precipitation-and-other-water)
+- Daily mean, minimum, and maximum air temperatures from [the NASA Global Modeling and Assimilation Office's MERRA-2 re-analysis dataset](https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/)
+
+
 Acknowledgements
 ----------------
 
