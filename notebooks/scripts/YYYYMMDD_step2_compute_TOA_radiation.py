@@ -44,8 +44,9 @@ def toa_radiation(latitude, doy):
 
     R = ((24 * 60) / pi) * G * d * (w * sin(L) * sin(D) + cos(L) * cos(D) * sin(w))
 
-    Where G is the solar constant, 0.0820 [MJ m-2 day-1]; d is the earth-sun
-    distance; w is the sunset hour angle; and D is the solar declination angle.
+    Where G is the solar constant, 0.0820 [MJ m-2 day-1]; d is the (inverse)
+    relative earth-sun distance; w is the sunset hour angle; and D is the solar
+    declination angle.
 
     For more information, consult the FAO documentation:
 
@@ -54,7 +55,8 @@ def toa_radiation(latitude, doy):
     Parameters
     ----------
     latitude : float
-        The latitude on earth, in degrees
+        The latitude on earth, in degrees, where southern latitudes
+        are represented as negative numbers
     doy : int
         The day of the year (DOY), an integer on [1,366]
 
@@ -63,30 +65,45 @@ def toa_radiation(latitude, doy):
     Number
         Top-of-atmosphere (TOA) radiation, in [MJ m-2 day-1]
     '''
+    assert isinstance(doy, int) or issubclass(doy.dtype.type, np.integer), 'The "doy" argument must be an integer'
+    assert np.all(doy >= 1) and np.all(doy <= 366), 'The "doy" argument must be between 1 and 366, inclusive'
+
     solar_constant = 0.0820 # [MJ m-2 day-1]
     pi = 3.14159
 
     # Convert latitude from degrees to radians
-    lat_radians = np.deg2rad(latitude)
-    # Earth-Sun distance, as a function of day-of-year (DOY)
-    earth_sun_dist = 1 + 0.0033 * np.cos(doy * ((2 * pi) / 365))
+    latitude_radians = np.deg2rad(latitude)
+    # Inverse Earth-Sun distance (relative), as a function of day-of-year (DOY)
+    earth_sun_dist = 1 + 0.0033 * np.cos((doy * 2 * pi) / 365)
     # Solar declination, as a function of DOY
-    declination = 0.409 * np.sin(doy * ((2 * pi) / 365) - 1.39)
+    declination = 0.409 * np.sin(((doy * 2 * pi) / 365) - 1.39)
 
     # Sunset hour angle; we use np.where() below to guard against
     #   warnings where arccos() would return invalid values, which
     #   happens when the argument is outside [-1, 1]
-    _hour_angle = -np.tan(lat_radians) * np.tan(declination)
+    _hour_angle = -np.tan(latitude_radians) * np.tan(declination)
     _hour_angle = np.where(np.abs(_hour_angle) > 1, np.nan, _hour_angle)
     sunset_hour_angle = np.arccos(_hour_angle)
 
-    return ((24 * 60) / pi) * solar_constant * earth_sun_dist *\
-        (sunset_hour_angle * np.sin(lat_radians) * np.sin(declination) +
-            np.cos(lat_radians) * np.cos(declination) * np.sin(sunset_hour_angle))
+    # Incident radiation, depends only on the relative earth-sun distance
+    inc_radiation = ((24 * 60) / pi) * solar_constant * earth_sun_dist
+    return inc_radiation * (sunset_hour_angle * np.sin(latitude_radians) * np.sin(declination) +
+            np.cos(latitude_radians) * np.cos(declination) * np.sin(sunset_hour_angle))
 
 
 def toa_radiation_wrapper(dataset):
-    'Wraps toa_radiation to work with an xarray.Dataset'
+    '''
+    Wraps toa_radiation to work with an xarray.Dataset
+
+    Parameters
+    ----------
+    dataset : xarray.Dataset
+        Input dataset with "lat_grid" and "time" variables
+
+    Returns
+    -------
+    xarray.DataArray
+    '''
     return toa_radiation(dataset['lat_grid'], dataset['time.dayofyear'])
 
 
