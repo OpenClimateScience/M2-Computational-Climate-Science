@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/742518754.svg)](https://zenodo.org/doi/10.5281/zenodo.13820296)
+
+
 M2: Computational Climate Science
 =================================
 
