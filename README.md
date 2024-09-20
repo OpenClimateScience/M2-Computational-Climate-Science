@@ -14,7 +14,7 @@ The second module of our [open climate-science curriculum](https://openclimatesc
 Contents
 --------------
 
-1. Managing Software Dependencies
+1. [Managing Software Dependencies](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/01_Managing_Software_Dependencies.ipynb)
 2. [Working with Gridded Climate Data](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/02_Working_with_Gridded_Climate_Data.ipynb)
 3. [Climate and Drought Indices](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/03_Climate_and_Drought_Indices.ipynb)
 4. [Processing Long Climate Data Records Concurrently](https://github.com/OpenClimateScience/M2-Computational-Climate-Science/blob/main/notebooks/04_Processing_Long_Climate_Data_Records.ipynb)
