@@ -50,11 +50,17 @@ Learning Outcomes
 -----------------
 
 - Uses meaningful but brief filenames and folder names. Uses one of the following strategies: Timestamps, Process hierarchy, or Filename metadata. (CC1.3)
-- Uses a package manager to install and manage software dependencies. (CC1.10)
 - Knows how to navigate a file system using both a graphical user interface (GUI) and a command-line interface (CLI). (CC1.4)
 - Records relationships between code, results, and metadata. (CC1.5)
+- Uses a package manager to install and manage software dependencies. (CC1.10)
 - Understands machine representations of numeric data types. (CC2.1)
+- Understands multidimensional arrays and their use for representing datasets structured by space, time, and multiple variables. (CC2.3)
+- Profiles the resource use of a computational workflow. (CC2.5)
+- Understands different types of concurrency and how to scale up a computational workflow that is limited by throughput or memory. (CC2.6)
 - Can debug a computational workflow, either by deduction, print statements, breakpoints, or an interactive debugger. (CC2.7)
+- Familiar with the different types of structured datasets used in scientific applications, including spatial datasets (raster and vector) and hierarchical datasets (e.g., HDF5, netCDF4). (CC2.8)
+- Computational workflows are documented with both in-line comments and external documentation. (CC4.3)
+- Writes short, simple functions that have no side effects. (CC4.9)
 
 
 Climate Datasets Used
